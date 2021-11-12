@@ -68,8 +68,8 @@ public class Main
         // Initialize our two final variables as doubles,
         // as we are going to multiply numbers with decimals.
         //
-        double area = 0.0;
-        double circumference = 0.0;
+        double area;
+        double circumference;
 
         //
         // Initialize the diameters of the rectangle.
