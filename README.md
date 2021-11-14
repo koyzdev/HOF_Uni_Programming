@@ -4,6 +4,7 @@
 ## About
 
 I am an IT student at the Hof University of Applied Science and these are the "Grundlagen der Programmierung" self study exercises.
+
 (First winter semester)
 
 ## Contact
