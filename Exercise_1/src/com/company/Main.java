@@ -84,14 +84,14 @@ public class Main
         area = width * height;
 
         //
-        // The mathematical formula to calculate the width for a rectangle
-        // is C = 2 * (a + b).
+        // The mathematical formula to calculate the circumference for a rectangle
+        // is C = 2 * (l + w).
         //
         circumference = 2 * (width + height);
 
         //
         // Use the out interface to print on the console.
         //
-        System.out.printf("Exercise 3 - Width: %.2f | Height: %.2f\n", area, circumference);
+        System.out.printf("Exercise 3 - Area: %.2f | Circumference: %.2f\n", area, circumference);
     }
 }
