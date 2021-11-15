@@ -194,6 +194,45 @@ public class Main
         // as this is our major diagonal of "nn"
         //
         System.out.printf("Exercise 11 - Result: %.2f\n", sum_major_diagonal(nn));
+
+        //
+        // Exercise 12
+        //
+
+        //
+        // We can just use the n*n matrix again.
+        //
+        var indexes = locate_largest(nn);
+
+        //
+        // Print our indexes.
+        //
+        System.out.printf("Exercise 12 - The biggest element in the matrix nn is located at [%d][%d]!\n", indexes[0], indexes[1]);
+
+        //
+        // Exercise 13
+        //
+
+        //
+        // For simplicity, we are going to make a 3x3
+        // matrix which meets the markov matrix criteria.
+        //
+        double[][] markov = {
+                { 0.1, 0.1, 0.8 },
+                { 0.2, 0.2, 0.6 },
+                { 0.3, 0.3, 0.4 }
+        };
+
+        //
+        // Now just call our function with our markov
+        // matrix, theoretically it should return true.
+        //
+        var is_markov = is_markov_matrix(markov);
+
+        //
+        // Now print our result.
+        //
+        System.out.printf("Exercise 13 - Our matrix called 'markov' is%s a markov matrix!\n", is_markov ? "" : " not");
     }
 
     //
@@ -853,5 +892,100 @@ public class Main
         // Return our result.
         //
         return sum;
+    }
+
+    //
+    // This function takes a two-dimensional array as the parameter.
+    // It is supposed to search for the greatest element inside this array,
+    // returning the row and column index inside a one dimensional array.
+    //
+    private static int[] locate_largest(double[][] m)
+    {
+        //
+        // Set our max value to the beginning of the
+        // array, as any other value could lead to corner cases.
+        //
+        double max = m[0][0];
+
+        //
+        // Declare and initialize our two result variables
+        // and set them to the beginning of the array.
+        //
+        int row_index = 0, col_index = 0;
+
+        //
+        // Loop through all rows inside the array.
+        //
+        for(int i = 0; i < m.length; i++)
+        {
+            //
+            // Loop through all columns inside the current row.
+            //
+            for(int j = 0; j < m[i].length; j++)
+            {
+                //
+                // If the current element inside the current column
+                // is greater than our max value, we are going to set
+                // the row_index and col_index to our iterator variables (i, j)
+                // and set the max value to the current element.
+                //
+                if(m[i][j] > max)
+                {
+                    row_index = i;
+                    col_index = j;
+                    max = m[i][j];
+                }
+            }
+        }
+
+        //
+        // Return the row_index and col_index inside a one dimensional array.
+        // This is inlined, so we don't need to create an extra variable just for that.
+        //
+        return new int[]{ row_index, col_index };
+    }
+
+    //
+    // This function takes a matrix as the parameter and checks
+    // if the matrix is a markov matrix.
+    // A matrix is a markov matrix if all elements are positive and
+    // the sum of all elements in one row is equal to 1.
+    //
+    private static boolean is_markov_matrix(double[][] m)
+    {
+        //
+        // Iterate through all rows of our matrix.
+        //
+        for(var row : m)
+        {
+            //
+            // Declare and initialize our sum variable.
+            // This is done inside the for loop
+            // as we only need it in here.
+            //
+            double sum = 0;
+
+            //
+            // Iterate through all columns inside
+            // the current row and add them to
+            // our sum variable.
+            //
+            for(var column : row)
+                sum += column;
+
+            //
+            // If the sum is not equal to 1
+            // we know that his matrix is not a markov one
+            // and hence can just return false.
+            //
+            if(sum != 1)
+                return false;
+        }
+
+        //
+        // This matrix is indeed a markov one
+        // so we can return true.
+        //
+        return true;
     }
 }
