@@ -1,8 +1,8 @@
-package com.company;
-
 //
 // Called "Einführung - Aufgaben.pdf" on Moodle
 //
+
+package com.company;
 
 public class Main
 {
