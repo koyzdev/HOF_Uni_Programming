@@ -115,6 +115,20 @@ public class Main
         // Print the array and if it is sorted or not.
         //
         System.out.printf("Exercise 7 - %s %s sorted\n", Arrays.toString(dupes), sorted ? "is" : "is not");
+
+        //
+        // Exercise 8
+        //
+
+        //
+        // Allocate a new array with four consecutive numbers.
+        //
+        int[] consecutive = { 0, 0, 1, 1, 2, 2, 2, 2 };
+
+        //
+        // Print the original array and if it has four consecutive numbers.
+        //
+        System.out.printf("Exercise 8 - %s %s four consecutive numbers!\n", Arrays.toString(consecutive), has_consecutive_four(consecutive) ? "has" : "doesn't have");
     }
 
     //
@@ -621,7 +635,7 @@ public class Main
     // This function takes an array of integers as a parameter
     // and checks if it is sorted ascending.
     //
-    private static boolean is_sorted(int[] list)
+    private static boolean is_sorted(int[] array)
     {
         //
         // Iterate through all elements inside the array.
@@ -629,14 +643,14 @@ public class Main
         // inside the for loop, if we don't skip it, we will
         // receive and index out of bounds exception.
         //
-        for(int i = 0; i < list.length - 1; i++)
+        for(int i = 0; i < array.length - 1; i++)
         {
             //
             // If the current element is greater than the next
             // element then the list is not sorted in ascending order.
             // Since it is not sorted return false.
             //
-            if(list[i] > list[i + 1])
+            if(array[i] > array[i + 1])
                 return false;
         }
 
@@ -644,5 +658,45 @@ public class Main
         // Return true since the list is indeed sorted in ascending order.
         //
         return true;
+    }
+
+    //
+    // This function takes an array as a parameter
+    // and checks if it has 4 consecutive equal numbers.
+    //
+    private static boolean has_consecutive_four(int[] array)
+    {
+        //
+        // Iterate through all the elements inside
+        // the array.
+        //
+        for(int i = 0; i < array.length; i++)
+        {
+            //
+            // If we only have 3 elements left
+            // we don't need to go any further,
+            // since we can't find FOUR more consecutive equal numbers.
+            //
+            if(i == array.length - 3)
+                break;
+
+            //
+            // Store the current value inside a variable
+            // and check if it is equal to the next 3 elements.
+            // If so we can return true since we found 4 consecutive
+            // equal numbers.
+            //
+            var cur_value = array[i];
+            if(cur_value == array[i + 1] &&
+                cur_value == array[i + 2] &&
+                cur_value == array[i + 3])
+                return true;
+        }
+
+        //
+        // Return false since we didn't find four consecutive
+        // equal numbers.
+        //
+        return false;
     }
 }
