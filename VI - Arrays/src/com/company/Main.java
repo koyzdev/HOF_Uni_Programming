@@ -121,6 +121,21 @@ public class Main
         //
 
         //
+        // Create 2 arrays that are perfectly equal!
+        //
+        int[] arr_1 = { 1, 2, 3 };
+        int[] arr_2 = { 1, 2, 3 };
+
+        //
+        // Print both arrays and if they're equal or not.
+        //
+        System.out.printf("Exercise 8 - %s and %s are%s equal!\n", Arrays.toString(arr_1), Arrays.toString(arr_2), equal(arr_1, arr_2) ? "" : "n't");
+
+        //
+        // Exercise 9
+        //
+
+        //
         // Allocate a new array with four consecutive numbers.
         //
         int[] consecutive = { 0, 0, 1, 1, 2, 2, 2, 2 };
@@ -128,7 +143,7 @@ public class Main
         //
         // Print the original array and if it has four consecutive numbers.
         //
-        System.out.printf("Exercise 8 - %s %s four consecutive numbers!\n", Arrays.toString(consecutive), has_consecutive_four(consecutive) ? "has" : "doesn't have");
+        System.out.printf("Exercise 9 - %s %s four consecutive numbers!\n", Arrays.toString(consecutive), has_consecutive_four(consecutive) ? "has" : "doesn't have");
     }
 
     //
@@ -656,6 +671,41 @@ public class Main
 
         //
         // Return true since the list is indeed sorted in ascending order.
+        //
+        return true;
+    }
+
+    //
+    // This function takes 2 arrays as parameters
+    // and checks them both if they are equal.
+    // It will return true if they are equal and false
+    // if they are not.
+    //
+    private static boolean equal(int[] array_1, int[] array_2)
+    {
+        //
+        // If the length of both arrays doesn't match they can't
+        // be equal!
+        //
+        if(array_1.length != array_2.length)
+            return false;
+
+        //
+        // Iterate through all elements of both arrays.
+        // We can choose either length as they should be both equally long.
+        //
+        for(int i = 0; i < array_1.length; i++)
+        {
+            //
+            // If one element doesn't match the other
+            // they are not equal, meaning we can just return false.
+            //
+            if(array_1[i] != array_2[i])
+                return false;
+        }
+
+        //
+        // Both arrays are equal so we can return true.
         //
         return true;
     }
