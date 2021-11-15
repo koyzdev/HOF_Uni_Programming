@@ -144,6 +144,56 @@ public class Main
         // Print the original array and if it has four consecutive numbers.
         //
         System.out.printf("Exercise 9 - %s %s four consecutive numbers!\n", Arrays.toString(consecutive), has_consecutive_four(consecutive) ? "has" : "doesn't have");
+
+        //
+        // Exercise 10
+        //
+
+        //
+        // This is a simple dummy matrix.
+        //
+        double[][] m = {
+                { 1, 2,},
+                { 1, 2 },
+                { 1, 2 },
+                { 3, 4,},
+                { 3, 4 },
+                { 3, 4 },
+                { 5, 6,},
+                { 5, 6 },
+                { 5, 6 }
+        };
+
+        //
+        // Here we get the sum of all numbers
+        // in the 0th column.
+        //
+        var sum = sum_column(m, 0);
+
+        //
+        // Print the result.
+        //
+        System.out.printf("Exercise 10 - Result: %.2f\n", sum);
+
+        //
+        // Exercise 11
+        //
+
+        //
+        // For this exercise we will need a n*n matrix.
+        //
+        double[][] nn = {
+                { 1, 2, 3, 4 },
+                { 5, 6, 7, 8 },
+                { 9, 10, 11, 12 },
+                { 13, 14, 15, 16 }
+        };
+
+        //
+        // Print the result of 1 + 6 + 11 + 16
+        // as this is our major diagonal of "nn"
+        //
+        System.out.printf("Exercise 11 - Result: %.2f\n", sum_major_diagonal(nn));
     }
 
     //
@@ -748,5 +798,60 @@ public class Main
         // equal numbers.
         //
         return false;
+    }
+
+    //
+    // This function takes a matrix and a column index as parameters.
+    // We need to return the sum of all the values corresponding to the
+    // columns which are equal to the column_index.
+    //
+	private static double sum_column(double[][] m, int column_index)
+    {
+        //
+        // Declare and initialize our sum variable.
+        //
+        double sum = 0;
+
+        //
+        // Here we iterate through all rows of the matrix.
+        // Then we just add what is inside the column of the row
+        // to our sum.
+        //
+        for (var e : m)
+            sum += e[column_index];
+
+        //
+        // Return our result.
+        //
+        return sum;
+    }
+
+    //
+    // This function takes a n * n matrix and sums up the major diagonal.
+    // E.g. where x indicates the diagonal:
+    // x 0 0 0
+    // 0 x 0 0
+    // 0 0 x 0
+    // 0 0 0 x
+    //
+    private static double sum_major_diagonal(double[][] m)
+    {
+        //
+        // Declare and initialize our sum variable.
+        //
+        double sum = 0;
+
+        //
+        // Here we iterate through all rows of the matrix.
+        // Then we just add what is inside the diagonal
+        // to our sum.
+        //
+        for(int i = 0; i < m.length; i++)
+            sum += m[i][i];
+
+        //
+        // Return our result.
+        //
+        return sum;
     }
 }
