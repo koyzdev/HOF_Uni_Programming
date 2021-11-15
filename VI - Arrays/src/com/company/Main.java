@@ -79,7 +79,28 @@ public class Main
         //
         // Print the smallest index alongside the elements.
         //
-        System.out.printf("Exercise 4 - The smallest elements index in this array: %s is -> %d.\n", Arrays.toString(arr), index);
+        System.out.printf("Exercise 5 - The smallest elements index in this array: %s is -> %d.\n", Arrays.toString(arr), index);
+
+        //
+        // Exercise 6
+        //
+
+        //
+        // Create another dummy array with dupes.
+        //
+        int[] dupes = {1, 1, 2, 2, 3, 3, 4, 5, 6, 6};
+
+        //
+        // Get the same array without dupes through calling
+        // our function with the dupes array as the parameter.
+        //
+        var no_dupes = eliminate_duplicates(dupes);
+
+        //
+        // Print the original and no dupes array.
+        //
+        System.out.printf("Exercise 6 - Original: %s\n", Arrays.toString(dupes));
+        System.out.printf("Exercise 6 - No dupes: %s\n", Arrays.toString(no_dupes));
     }
 
     //
@@ -483,5 +504,102 @@ public class Main
         // Return our index.
         //
         return index;
+    }
+
+    private static int[] eliminate_duplicates(int[] array)
+    {
+        //
+        // If we don't have any elements in the array
+        // we are just going to return an empty array.
+        //
+        if(array.length <= 0)
+            return new int[0];
+
+        //
+        // This array will store the numbers out of the parameter array
+        // without the duplicates.
+        // It needs to be at least the size of the array since the array
+        // could just not contain any duplicates.
+        //
+        var tmp = new int[array.length];
+
+        //
+        // This count variable is responsible for keeping track on how many
+        // elements are inside the tmp array.
+        //
+        int count = 0;
+
+        //
+        // Just like in exercise 2 we are going to use a skip
+        // boolean to set it in a for loop which is inside a for loop.
+        //
+        boolean skip = false;
+
+        //
+        // This loop iterates through all the elements inside
+        // our array.
+        //
+        for(var e : array)
+        {
+            //
+            // Before inserting the element into our tmp array
+            // we of course need to check if it is already inside it.
+            //
+            for(var r : tmp)
+            {
+                //
+                // If e is equal to r the element is already inside the tmp array
+                // meaning we can just ignore it and skip over it.
+                //
+                if(e == r)
+                {
+                    skip = true;
+                    break;
+                }
+            }
+
+            //
+            // If the skip boolean is true it means we already
+            // inserted the current number, and we can just continue on
+            // to the next element in our list.
+            // Before breaking we have to reset the boolean so that we can
+            // continue finding new elements.
+            //
+            if(skip)
+            {
+                skip = false;
+                continue;
+            }
+
+            //
+            // Insert the current element into our tmp array.
+            //
+            tmp[count] = e;
+
+            //
+            // Increase the count since we just added
+            // a new element to our tmp array.
+            //
+            count++;
+        }
+
+        //
+        // Create a new list with a length of count.
+        // This will set a correct length without any unnecessary
+        // 0's inside the array.
+        //
+        var result = new int[count];
+
+        //
+        // If the count is greater than 0 we can just copy
+        // everything from the tmp array into the result array.
+        //
+        if (count > 0)
+            System.arraycopy(tmp, 0, result, 0, count);
+
+        //
+        // Return the result.
+        //
+        return result;
     }
 }
