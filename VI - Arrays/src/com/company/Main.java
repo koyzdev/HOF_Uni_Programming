@@ -101,6 +101,20 @@ public class Main
         //
         System.out.printf("Exercise 6 - Original: %s\n", Arrays.toString(dupes));
         System.out.printf("Exercise 6 - No dupes: %s\n", Arrays.toString(no_dupes));
+
+        //
+        // Exercise 7
+        //
+
+        //
+        // Check if the previously used dupes array is sorted.
+        //
+        var sorted = is_sorted(dupes);
+
+        //
+        // Print the array and if it is sorted or not.
+        //
+        System.out.printf("Exercise 7 - %s %s sorted\n", Arrays.toString(dupes), sorted ? "is" : "is not");
     }
 
     //
@@ -601,5 +615,34 @@ public class Main
         // Return the result.
         //
         return result;
+    }
+
+    //
+    // This function takes an array of integers as a parameter
+    // and checks if it is sorted ascending.
+    //
+    private static boolean is_sorted(int[] list)
+    {
+        //
+        // Iterate through all elements inside the array.
+        // We need to skip the last element since we use i + 1
+        // inside the for loop, if we don't skip it, we will
+        // receive and index out of bounds exception.
+        //
+        for(int i = 0; i < list.length - 1; i++)
+        {
+            //
+            // If the current element is greater than the next
+            // element then the list is not sorted in ascending order.
+            // Since it is not sorted return false.
+            //
+            if(list[i] > list[i + 1])
+                return false;
+        }
+
+        //
+        // Return true since the list is indeed sorted in ascending order.
+        //
+        return true;
     }
 }
