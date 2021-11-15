@@ -49,6 +49,25 @@ public class Main
         // Exercise 3
         //
         gen_random_nums_and_count();
+
+        //
+        // Exercise 4
+        //
+
+        //
+        // Create a dummy array for our function call.
+        //
+        double[] arr = {25, 1, 20, 2, 51, 2};
+
+        //
+        // Call the function with our dummy array.
+        //
+        var smallest = get_min_array(arr);
+
+        //
+        // Print our results.
+        //
+        System.out.printf("Exercise 4 - The smallest element in this array: %s is -> %.0f.\n", Arrays.toString(arr), smallest);
     }
 
     //
@@ -359,5 +378,45 @@ public class Main
             //
             System.out.printf("Exercise 3 - Found %d, %d times!\n", num, count);
         }
+    }
+
+    //
+    // This function takes an array as a parameter and is then
+    // supposed to find the smallest number in the array.
+    //
+    private static double get_min_array(double[] array)
+    {
+        //
+        // If we don't have any elements in the array
+        // we are just going to return 0.
+        //
+        if(array.length <= 0)
+            return 0.0;
+
+        //
+        // We set the min value to the first element
+        // in the array since we can't set it 0, as
+        // there could be only numbers greater than 0 in
+        // the array meaning the function would always return 0.
+        //
+        var min = array[0];
+
+        //
+        // Here we just go through all elements in the array.
+        //
+        for (double e : array)
+        {
+            //
+            // If e is smaller than the current min value
+            // we are going to set the min value to e.
+            //
+            if (e < min)
+                min = e;
+        }
+
+        //
+        // Return our result.
+        //
+        return min;
     }
 }
