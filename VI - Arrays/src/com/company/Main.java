@@ -3,9 +3,7 @@
 //
 
 package com.company;
-import java.lang.reflect.Array;
 import java.util.*;
-import java.util.zip.ZipEntry;
 
 public class Main
 {
@@ -57,7 +55,7 @@ public class Main
         //
         // Create a dummy array for our function call.
         //
-        double[] arr = {25, 1, 20, 2, 51, 2};
+        double[] arr = {25, 5, 20, 2, 51, 2};
 
         //
         // Call the function with our dummy array.
@@ -68,6 +66,20 @@ public class Main
         // Print our results.
         //
         System.out.printf("Exercise 4 - The smallest element in this array: %s is -> %.0f.\n", Arrays.toString(arr), smallest);
+
+        //
+        // Exercise 5
+        //
+
+        //
+        // We are going to use the dummy array from exercise 4 again.
+        //
+        var index = index_of_smallest_element(arr);
+
+        //
+        // Print the smallest index alongside the elements.
+        //
+        System.out.printf("Exercise 4 - The smallest elements index in this array: %s is -> %d.\n", Arrays.toString(arr), index);
     }
 
     //
@@ -418,5 +430,58 @@ public class Main
         // Return our result.
         //
         return min;
+    }
+
+    //
+    // This function takes an array as a parameter and then
+    // searches for the smallest element inside it and returns
+    // the smallest elements index.
+    //
+    private static int index_of_smallest_element(double[] array)
+    {
+        //
+        // If we don't have any elements in the array
+        // we are just going to return -1.
+        //
+        if(array.length <= 0)
+            return -1;
+
+        //
+        // We set the min value to the first element
+        // in the array since we can't set it 0, as
+        // there could be only numbers greater than 0 in
+        // the array meaning the function would always return 0.
+        //
+        double min = array[0];
+
+        //
+        // Since the function needs to return the index of
+        // the smallest element, we of course need to keep
+        // track of it.
+        //
+        int index = 0;
+
+        //
+        // This for loop just iterates through all elements
+        // inside the array.
+        //
+        for(int i = 0; i < array.length; i++)
+        {
+            //
+            // If the current element is smaller than the min variable
+            // we are going to set min to the current element and update
+            // the index to the current index (i).
+            //
+            if(array[i] < min)
+            {
+                min = array[i];
+                index = i;
+            }
+        }
+
+        //
+        // Return our index.
+        //
+        return index;
     }
 }
