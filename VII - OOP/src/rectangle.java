@@ -64,7 +64,7 @@ public class rectangle
 	}
 
 	//
-	// Section for our variables.
+	// Variables
 	//
 	private double width = 1;
 	private double height = 1;
