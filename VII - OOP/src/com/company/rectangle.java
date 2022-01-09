@@ -1,4 +1,4 @@
-//
+package com.company;//
 // This the 1st exercise.
 // We are supposed to create a new class called "rectangle".
 // It needs 2 data fields (doubles), a no-arg-constructor, another

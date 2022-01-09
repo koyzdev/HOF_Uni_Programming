@@ -1,4 +1,4 @@
-//
+package com.company;//
 // This the 2nd exercise.
 // We are supposed to create a new class called "stock".
 // It needs 4 data fields (2 strings, 2 doubles), a constructor

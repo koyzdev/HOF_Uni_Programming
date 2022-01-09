@@ -21,7 +21,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="jdk.selected.JAVA_MODULE" value="17" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/Exercise_4" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/VII - OOP" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -38,6 +38,7 @@
       <workItem from="1636698284739" duration="37000" />
       <workItem from="1636699732936" duration="37000" />
       <workItem from="1636885743122" duration="80000" />
+      <workItem from="1641702660624" duration="107000" />
     </task>
     <servers />
   </component>
